@@ -4,12 +4,11 @@ var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(module.filename);
-var env       = process.env.NODE_ENV || 'development';
-var config    = require('../config/config')[env];
+var env       = process.env.NODE_ENV || 'dev';
+var config    = require(__dirname + '/../../config/db')[env];
 var db        = {};
 
-
-console.log('modelsssssssssss', config.status)
+console.log('Sequelize config ====>', config)
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);

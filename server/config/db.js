@@ -5,7 +5,7 @@ let config = {
     database: "database_development",
     dialect: "sqlite",
     storage: "dev_books.sqlite",
-    status: 'oi',
+    db: 'oi',
     define: {
       underscored: true
     }

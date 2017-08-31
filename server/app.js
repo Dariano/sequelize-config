@@ -1,15 +1,15 @@
 const express = require('express')
 const app = express()
-const config = require('../config/config')['dev']
-const configServer = require('../config/config-server')
+const config = require('./config/db')['dev']
+const configServer = require('./config/config-server')
 
 
 app.listen(3001, async () => {
-    let a = await configServer.buscar()    
-    config.status = a
+    let db = await configServer.buscar()    
+    config.db = db
 
-    console.log('Servidor rodando na porta 3001', a)
+    console.log('Servidor rodando na porta 3001', db)
     
-    const models = require('../models')
+    const models = require('./db/models')
     models.sequelize.sync().then(() => console.log('Sincronizado!!!!'))
 })    
