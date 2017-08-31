@@ -1,14 +1,11 @@
 const request = require('axios')
 
 class  ConfigServer {
+    
     async buscar() {
-        return request
-            .get('https://dog.ceo/api/breeds/image/random')
-            .then((res) => {
-                console.log('configuração ==============>', res.data.status)
-                return res.data.status
-            })
-
+      const response = await request.get('https://dog.ceo/api/breeds/image/random');
+      await console.log(`Configuração ====> ${ response.data.status }`)
+      return await response.data.status;
     }
 }
 
